@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="R2-Talker: Realistic Real-Time Talking Head Synthesis with Hash Grid Landmarks Encoding and Progressive Multilayer Conditioning">
+  <meta name="keywords" content="R2-Talker, Talking Head Synthesis, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>R2-Talker: Realistic Real-Time Talking Head Synthesis with Hash Grid Landmarks Encoding and Progressive Multilayer Conditioning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">R2-Talker: Realistic Real-Time Talking Head Synthesis with Hash Grid Landmarks Encoding and Progressive Multilayer Conditioning</h1>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Zhiling Ye</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Liangguo Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Dingheng Zeng</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Quan Lu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Ning Jiang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Mashang Consumer Finance Co, Ltd</span>
+          </div>
+
+          <!-- <h1 class="title is-4 publication-title">Under Construction and will be accessed after Dec 25, 2023, Pacific Time</h1> -->
+  
+
+        </div>
+      </div>
+    </div>
+    <div class="column has-text-centered">
+      <div class="publication-links">
+        <!-- PDF Link. -->
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2312.05572"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2312.05572"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="ai ai-arxiv"></i>
+            </span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        <!-- Video Link. -->
+        <span class="link-block">
+          <a href="https://www.youtube.com/watch?v=pdGFnCBiU5Y"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fab fa-youtube"></i>
+            </span>
+            <span>Video</span>
+          </a>
+        </span>
+        <!-- Code Link. -->
+        <span class="link-block">
+          <!-- <a href="https://github.com/google/nerfies"
+             class="external-link button is-normal is-rounded is-dark"
+             onclick="alert('We plan to release the source code after the rebuttal phase.')">
+            <span class="icon">
+                <i class="fab fa-github"></i>
+            </span>
+            <span>Code</span>
+            </a> -->
+          <a href="" class="external-link button is-normal is-rounded is-dark" onclick="alert('We plan to release the source code before Dec 25, 2023, Pacific Time.')">
+          <span class="icon">
+          <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+          </span>
+          <span>Code</span>
+          </a>
+        </span>
+        <!-- Dataset Link. -->
+        <!-- <span class="link-block">
+          <a href="https://github.com/google/nerfies/releases/tag/0.1"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="far fa-images"></i>
+            </span>
+            <span>Data</span>
+            </a> -->
+      </div>
+  </div>
+</section>
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <body>
+        <img src="./static/images/OOD_QA_fig_pre.png" alt="title_image">
+      </body>
+      <h2 class="subtitle has-text-centered">
+        In a cross-driven scenario, we compare R2-Talker with other methods. Geneface++† denotes the approach of Geneface+instant-NGP.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-max-desktop">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="150%">
+            <source src="./static/videos/first_video_io.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="150%">
+            <source src="./static/videos/first_video_io_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="150%">
+            <source src="./static/videos/first_video_io_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="150%">
+            <source src="./static/videos/first_video_io_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Dynamic NeRFs have recently garnered growing attention for 3D talking portrait 
+            synthesis. Despite advances in rendering speed and visual quality, challenges 
+            persist in enhancing efficiency and effectiveness. We present R2-Talker, an 
+            efficient and effective framework enabling realistic real-time talking head 
+            synthesis. Specifically, using multi-resolution hash grids, we introduce a 
+            novel approach for encoding facial landmarks as conditional features. This 
+            approach losslessly encodes landmark structures as conditional features, 
+            decoupling input diversity, and conditional spaces by mapping arbitrary 
+            landmarks to a unified feature space. We further propose a scheme of 
+            progressive multilayer conditioning in the NeRF rendering pipeline for 
+            effective conditional feature fusion. 
+            <p>
+            Our new approach has the following 
+            advantages as demonstrated by extensive experiments compared with the 
+            state-of-the-art works: 1. The lossless input encoding enables acquiring 
+            more precise features, yielding superior visual quality. The decoupling of 
+            inputs and conditional spaces improves generalizability.
+            2. The fusing of 
+            conditional features and MLP outputs at each MLP layer enhances conditional 
+            impact, resulting in more accurate lip synthesis and better visual quality. 
+            3. It compactly structures the fusion of conditional features, significantly 
+            enhancing computational efficiency.
+          </p>
+        </div>
+        <h2 class="title is-3">Pipeline</h2>
+        <body>
+          <img src="./static/images/pipeline.png" alt="title_image">
+        </body>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Demo video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demo video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/pdGFnCBiU5Y?rel=0&showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    
+    <!-- Self-Driven. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Self-Driven</h2>
+
+        <!-- Re-rendering. -->
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/Self-driven Comparison.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Under the self-driven settings, we visually compare the visual quality of the results generated by different methods. 
+          </p>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+
+    <!-- Cross-Driven. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Cross-Driven</h2>
+
+        <!-- Re-rendering. -->
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/videos/cross_driven.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            We compare the visual quality of the results of different methods under the cross gender and cross lingual settings
+          </p>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2211.12368">RAD-NeRF</a>: Real-time Neural Radiance Talking Portrait Synthesis via Audio-spatial Decomposition.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2307.09323">ER-NeRF</a>: Efficient Region-Aware Neural Radiance Fields for High-Fidelity Talking Portrait Synthesis.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2305.00787">Geneface++</a>: Generalized and Stable Real-Time Audio-Driven 3D Talking Face Generation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhiling2023r2talker,
+  author    = {Zhiling Ye, Liangguo Zhang, Dingheng Zeng, Quan Lu, Ning Jiang},
+  title     = {R2-Talker: Realistic Real-Time Talking Head Synthesis with Hash Grid Landmarks Encoding 
+               and Progressive Multilayer Conditioning},
+  journal   = {arXiv preprint arXiv:2312.05572}, 
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+</body>
+</html>
